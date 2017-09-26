@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -38,7 +39,15 @@ namespace WebApplication1.Controllers
         // GET: Store
         public ActionResult Index()
         {
-            return View();
+            var genres = new List<Genre>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                genres.Add(new Genre { Name = "Genre " + i.ToString() });
+            }
+
+            // ViewBag.genres = genres;
+            return View(genres);
         }
 
         // GET: Store/Browse
